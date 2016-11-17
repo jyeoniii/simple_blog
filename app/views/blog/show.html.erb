@@ -1,0 +1,33 @@
+<h1 style="padding-bottom:30px">Post <%=@post.id%></h1>
+
+<li class="post_box">
+  <span style="color:#19A99B;"> <%=@post.writer%> : </span>
+  <div style="padding-left:40px">
+    <pre><%=@post.content%></pre>
+    <div style="text-align:right">
+    <%=@post.updated_at%><br /> <!--마지막으로 업데이트 된 날짜-->
+    <a href="/">뒤로</a>
+    </div>
+  </div>
+</li>
+
+
+
+<div style="margin-left:40px; margin-top:30px">
+  <form action="/blog/comment"> <!--input에 값 넣으면 이 주소로 날아간다-->
+    <input type="hidden" name="id" value="<%=@post.id%>">
+    <textarea style="margin-bottom:10px" name="comment" placeholder="댓글을 입력하세요."></textarea><br />
+    <input type="submit">
+
+  </form>
+</div>
+
+
+
+<% @post.cmts.each do |c| %>
+<li style="padding-top:30px;margin-left:50px">
+  <%=c.msg%>
+  <!--수정코드-->
+  <a href="/blog/delete_comment/?post_id=<%=@post.id%>&id=<%=c.id%>">삭제</a>
+</li>
+<% end %>

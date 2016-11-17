@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <style>
+  h1{
+    text-align: center;
+  }
+
+  .post_box{
+    margin-left:30px;
+    width:300px;
+  }
+
+  .font{
+    font-family: verdana;
+    font-size:13px;
+  }
+
+
+  </style>
+
+
+  <head>
+    <title>Railsbasic</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="font">
+      <%= yield %>
+    </div>
+  </body>
+</html>

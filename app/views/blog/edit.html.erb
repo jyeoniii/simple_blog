@@ -1,0 +1,15 @@
+<h1>EDIT</h1>
+
+<p>
+  edit post : <%=@post.id%>
+</p>
+
+<form action="/blog/update"> <!--input에 값 넣으면 이 주소로 날아간다-->
+  <input style="margin-bottom:5px" type = "hidden" name="id" value="<%=@post.id%>">
+  <input style="margin-bottom:5px" type="text" name="irum" placeholder="작성자" value= "<%=@post.writer%>"><br />
+  <textarea style="margin-bottom:10px" name="naeyong"><%=@post.content%></textarea><br />
+  <input type="submit">
+</form>
+<form action="/">
+  <input style="white-space:nowrap" type="submit" value="뒤로" />
+</form>
