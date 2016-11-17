@@ -33,15 +33,15 @@ class BlogController < ApplicationController
 
   def comment
     pp = Post.find(params[:id])
-    pcmts = pp.cmts
-    pcmts.create(post_id:pp.id, msg:params[:comment])
+    pcomments = pp.comments
+    pcomments.create(post_id:pp.id, msg:params[:comment])
     redirect_to action: 'show', id: pp.id
   end
 
   def delete_comment
     pp = Post.find(params[:post_id])
-    pcmts = pp.cmts
-    c = pcmts.find(params[:id])
+    pcomments = pp.comments
+    c = pcomments.find(params[:id])
     c.destroy
     pp.save
     redirect_to action: 'show', id: pp.id

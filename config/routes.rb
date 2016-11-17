@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'blog#index' #== get'/' => 'blog#index'
+  root 'home#index' #== get'/' => 'blog#index'
+  get '/home/about' => 'home#about'
+  
+  get '/blog' => 'blog#index'
   get 'blog/create' #== get '/blog/create' => 'blog#create'
   get 'blog/destroy'
   get 'blog/edit'

@@ -1,34 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <style>
-  h1{
-    text-align: center;
-  }
-
-  .post_box{
-    margin-left:30px;
-    width:300px;
-  }
-
-  .font{
-    font-family: verdana;
-    font-size:13px;
-  }
-
-
-  </style>
-
-
   <head>
     <title>Railsbasic</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/css/swiper.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.js"></script
+
   </head>
 
   <body>
     <div class="font">
+      <a href="/">HOME</a>
+      <a href="/home/about">ABOUT</a>
+      <a href="/blog">BLOG</a>
       <%= yield %>
     </div>
   </body>

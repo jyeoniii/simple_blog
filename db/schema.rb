@@ -12,16 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161116191018) do
 
-  create_table "cmts", force: :cascade do |t|
-    t.text     "msg"
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text     "msg"
-    t.integer  "blog_id"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

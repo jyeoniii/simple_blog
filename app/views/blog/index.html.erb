@@ -1,6 +1,6 @@
 <h1 style="padding-bottom:30px;color:#8523d3">Hello, Simple Blog</h1>
 
-
+<!--Post 작성-->
 <div style="margin-left:20px; margin-bottom:50px">
   <h4>Post 작성</h4>
   <form action="/blog/create"> <!--input에 값 넣으면 이 주소로 날아간다-->
@@ -11,20 +11,35 @@
   </form>
 </div>
 
+<!--Post show-->
 <% @posts.each do |p|%>
-<p>
-  <li class="post_box">
-    <span style="color:#19A99B;"> <%=p.writer%> : </span>
-    <div style="padding-left:40px">
-      <pre><%=p.content%></pre>
-      <div style="text-align:right">
-      <%=p.updated_at%><br /> <!--마지막으로 업데이트 된 날짜-->
-      <a href="/blog/show?id=<%=p.id%>">Comment</a>
-      <a href="/blog/edit?id=<%=p.id%>">수정</a>
-      <a href="/blog/destroy?id=<%=p.id%>">삭제</a> <!--blog controller의 destroy action을 취하겠다-->
+<div class="post-list clearfix">
+  <div class="post-box">
+    <li style="margin-left:10px; margin-top:10px; margin-bottom:10px">
+      <span style="color:#19A99B;"> <%=p.writer%> : </span>
+      <div style="padding-left:40px">
+        <pre><%=p.content%></pre>
+        <div style="text-align:right">
+        <%=p.updated_at%><br /> <!--마지막으로 업데이트 된 날짜-->
+        <a href="/blog/show?id=<%=p.id%>">Comment</a>
+        <a href="/blog/edit?id=<%=p.id%>">수정</a>
+        <a href="/blog/destroy?id=<%=p.id%>">삭제</a> <!--blog controller의 destroy action을 취하겠다-->
+        </div>
       </div>
-    </div>
-  </li>
-</p>
+    </li>
+  </div>
+
+
+  <!--Comment-->
+  <div class="comment-box">
+    <% p.comments.each do |c|%>
+    <li style="padding-left:50px">
+      <%=c.msg=%>
+    </li>
+    <% end %>
+  </div>
+
+
+</div>
 
 <% end %>
