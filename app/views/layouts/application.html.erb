@@ -16,6 +16,14 @@
       <a href="/">HOME</a>
       <a href="/home/about">ABOUT</a>
       <a href="/blog">BLOG</a>
+      <!--고치기-->
+      <% if user_signed_in? %>
+      <a href="/sessions/destroy">SIGN OUT</a>
+      <%=User.find_by(id: session[:user_id]).name%>
+      <% else %>
+      <a href="/sessions/new">SIGN IN</a>
+      <a href="/users/new">SIGN UP</a>
+      <%end%>
       <%= yield %>
     </div>
   </body>
